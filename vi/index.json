@@ -1,0 +1,113 @@
+[
+{
+	"uri": "https://duc14563.github.io/video-streaming-workshop/vi/4-mediaconvert/4.1-createmediaconvert/",
+	"title": "Tạo Job MediaConvert",
+	"tags": [],
+	"description": "",
+	"content": "🧰 Sử dụng AWS MediaConvert để Chuyển mã Video sang HLS 🎯 Mục tiêu Dùng AWS Elemental MediaConvert để chuyển đổi video gốc (.mp4) sang định dạng HLS (.m3u8) nhằm tối ưu hoá cho streaming qua CloudFront. 🛠️ Các bước thực hiện 🔹 Bước 1: Tạo thư mục đầu ra trên S3 Truy cập Amazon S3 → Chọn bucket: video-streaming-s3-demo Nhấn Create folder, đặt tên: output/ 🔹 Bước 2: Tạo Job trong AWS Elemental MediaConvert Truy cập https://ap-southeast-1.console.aws.amazon.com/mediaconvert/home?region=ap-southeast-1#/welcome Vào tab Jobs → Chọn Create job 🔹 Bước 3: Nhập Input Video Trong phần Inputs, nhấn Add Dán đường dẫn video S3 (ví dụ): s3://video-streaming-s3-demo/SampleVideo_1280x720_1mb.mp4 🔹 Bước 4: Tạo Output Group → Chọn HLS Ở mục Output groups, nhấn Add output group Chọn HLS group Output destination: s3://video-streaming-s3-demo/output/ 🔹 Bước 5: Thiết lập Output Video Ở phần Outputs, bạn sẽ thấy mặc định video codec là H.264 và audio là AAC Nếu hệ thống báo lỗi maxBitrate is a required property, bạn sửa như sau: Cách sửa lỗi maxBitrate is a required property:\nKéo xuống phần Video settings Chọn: Rate control mode: QVBR Max bitrate (bits/s): nhập 5000000 (5 Mbps) QVBR quality level: giữ mặc định Auto 🔹 Bước 6: Submit Job Nhấn Create Quá trình chuyển đổi sẽ mất 1–3 phút. Sau đó sẽ ra kết quả giống hình: ✅ Kết quả Kiểm tra thư mục /output/ trong S3, bạn sẽ thấy: index.m3u8 (playlist HLS) Các segment .ts. "
+},
+{
+	"uri": "https://duc14563.github.io/video-streaming-workshop/vi/1-introduce/",
+	"title": "Giới thiệu",
+	"tags": [],
+	"description": "",
+	"content": "Giới thiệu Mô tả xây dựng video streaming platform Thành phần cốt lõi: S3 (storage) và CloudFront (distribution) Mục tiêu học tập Thiết kế kiến trúc streaming scalable Cấu hình S3 cho media storage và public access Tạo CloudFront distributions cho global delivery Cấu hình bucket policies và CORS "
+},
+{
+	"uri": "https://duc14563.github.io/video-streaming-workshop/vi/",
+	"title": "Giới thiệu",
+	"tags": [],
+	"description": "",
+	"content": "🎯 Mục tiêu của workshop Workshop này hướng dẫn bạn triển khai một nền tảng Video Streaming đơn giản sử dụng các dịch vụ AWS như S3, CloudFront, và MediaConvert.\nBạn sẽ học cách:\nTạo S3 bucket để lưu trữ video Thiết lập CloudFront distribution để phân phối video toàn cầu Sử dụng MediaConvert để chuyển đổi video sang định dạng streaming Tối ưu hóa hiệu suất phát video qua CDN 🏗️ Kiến trúc hệ thống Kiến trúc bao gồm:\nAmazon S3: Lưu trữ video gốc và video đã chuyển đổi AWS MediaConvert: Xử lý và chuyển đổi video sang nhiều định dạng Amazon CloudFront: Phân phối video qua mạng CDN toàn cầu với Edge Locations ✅ Lợi ích khi tham gia workshop Hiểu cách xây dựng hệ thống streaming video trên AWS Nắm được cách tối ưu phân phối content toàn cầu Thực hành với các dịch vụ AWS core: S3, CloudFront, MediaConvert Có thể áp dụng vào dự án thực tế 📚 Kiến thức cần có Kiến thức cơ bản về AWS Console Hiểu biết về S3 bucket và IAM roles Kiến thức sơ bộ về CDN và video streaming "
+},
+{
+	"uri": "https://duc14563.github.io/video-streaming-workshop/vi/2-prerequiste/2.1-creates3bucket/",
+	"title": "Tạo S3 Bucket",
+	"tags": [],
+	"description": "",
+	"content": "🧱 Tạo S3 Bucket 🎯 Mục tiêu Tạo một bucket S3 để chứa file video phục vụ phát trực tuyến qua CloudFront.\n🛠️ Các bước thực hiện 🔹 Bước 1: Truy cập S3 Console Truy cập: https://console.aws.amazon.com/s3/home Nhấn Create bucket 🔹 Bước 2: Nhập thông tin cấu hình Bucket name: video-streaming-s3-demo Region: Asia Pacific (Singapore) ap-southeast-1 Block Public Access: bỏ chọn Block all public access 🔹 Bước 3: Tạo bucket Nhấn Create bucket để hoàn tất ✅ Result Bạn đã tạo thành công một S3 Bucket để sử dụng trong hệ thống Video Streaming.\n"
+},
+{
+	"uri": "https://duc14563.github.io/video-streaming-workshop/vi/4-mediaconvert/4.2-createmediaconvertjob/",
+	"title": "Tạo Job MediaConvert",
+	"tags": [],
+	"description": "",
+	"content": "🧰 Sử dụng AWS MediaConvert để Chuyển mã Video sang HLS 🎯 Mục tiêu Dùng AWS Elemental MediaConvert để chuyển đổi video gốc (.mp4) sang định dạng HLS (.m3u8) nhằm tối ưu hoá cho streaming qua CloudFront.\n🛠️ Các bước thực hiện 🔹 Bước 1: Truy cập MediaConvert Truy cập (https://console.aws.amazon.com/mediaconvert) Chọn Jobs → Create job 🔹 Bước 2: Thêm Input Video Trong phần Inputs, nhấn Add Dán đường dẫn video từ S3 (ví dụ): s3://video-streaming-s3-demo/SampleVideo_1280x720_1mb.mp4 🔹 Bước 3: Tạo Output Group → Chọn HLS Xuống mục Output groups → Nhấn Add output group Chọn loại: Apple HLS Output destination: s3://video-streaming-s3-demo/output/ Storage class: Standard 🔹 Bước 4: Thiết lập Output Trong phần Output, giữ nguyên preset mặc định (H.264 / AAC) Thiết lập: Rate control mode: QVBR Max bitrate: 5000000 QVBR quality level: Auto 🔹 Bước 5: Gửi Job và Chờ xử lý Kiểm tra lại Input, Output group, Codec, IAM Role Nhấn Create để gửi job Chờ từ 1–3 phút để xử lý 🔹 Bước 6: Kiểm tra file Output trên S3 Truy cập S3 → Bucket: video-streaming-s3-demo → Thư mục: output/ Bạn sẽ thấy các file như: .m3u8: Playlist HLS .ts: Các đoạn video segment .mp4: Video gốc ✅ Kết quả Kiểm tra bucket S3 /output/: index.m3u8 (playlist) Nhiều file .ts (video segment) Các file này đã sẵn sàng để stream qua CloudFront (xem bước 4.3) "
+},
+{
+	"uri": "https://duc14563.github.io/video-streaming-workshop/vi/2-prerequiste/",
+	"title": "Các bước chuẩn bị",
+	"tags": [],
+	"description": "",
+	"content": "\rBạn cần chuẩn bị một file video mẫu (định dạng MP4) để thực hiện bài thực hành này.\nĐể xây dựng hệ thống Video Streaming trên AWS, chúng ta cần chuẩn bị các thành phần cơ bản bao gồm S3 bucket để lưu trữ video và cấu hình quyền truy cập công khai để video có thể được phát trực tuyến.\nTrong phần chuẩn bị này, chúng ta sẽ:\nTạo S3 bucket để lưu trữ video Upload file video mẫu Cấu hình bucket policy để cho phép truy cập công khai Nội dung Tạo S3 Bucket Upload file video Cấu hình quyền truy cập công khai "
+},
+{
+	"uri": "https://duc14563.github.io/video-streaming-workshop/vi/2-prerequiste/2.2-createiamrole/",
+	"title": "Upload file video",
+	"tags": [],
+	"description": "",
+	"content": "📤 Upload file video 🎯 Mục tiêu Upload file video mẫu vào S3 bucket để chuẩn bị cho việc streaming.\n🛠️ Các bước thực hiện 🔹 Truy cập phần Upload của bucket Mở AWS S3 Console.\nClick vào bucket video-streaming-s3-demo\nChọn tab [Objects] → Upload Nhấn \u0026ldquo;Add files\u0026rdquo; → chọn file video mà bạn muốn upload\nNhấn Upload\n✅ Kết quả Bạn đã upload thành công file video vào S3 Bucket để sử dụng trong hệ thống Video Streaming.\n"
+},
+{
+	"uri": "https://duc14563.github.io/video-streaming-workshop/vi/3-cloudfront/",
+	"title": "Triển khai CloudFront",
+	"tags": [],
+	"description": "",
+	"content": "Trong bước này, chúng ta sẽ thiết lập Amazon CloudFront để phân phối video content với hiệu suất cao và độ trễ thấp trên toàn cầu. CloudFront sẽ cache video từ S3 bucket tại các edge locations gần người dùng nhất.\nCloudFront giúp:\nTăng tốc độ tải video Giảm băng thông từ S3 Cải thiện trải nghiệm người dùng toàn cầu Bảo mật content delivery Nội dung Tạo CloudFront Distribution Cập nhật website với CloudFront URL "
+},
+{
+	"uri": "https://duc14563.github.io/video-streaming-workshop/vi/2-prerequiste/2.3-makes3public/",
+	"title": "Hoàn tất cấu hình S3",
+	"tags": [],
+	"description": "",
+	"content": "🔓 Cấu hình quyền truy cập công khai 🎯 Mục tiêu Cho phép người dùng truy cập công khai vào video trong bucket S3 thông qua URL.\n🛠️ Các bước thực hiện 🔹 Bước 1: Cấu hình Bucket Policy để public file video Trong tab Permissions, kéo xuống mục Bucket policy Nhấn Edit → Dán đoạn JSON sau vào: {\r\u0026quot;Version\u0026quot;: \u0026quot;2012-10-17\u0026quot;,\r\u0026quot;Statement\u0026quot;: [\r{\r\u0026quot;Sid\u0026quot;: \u0026quot;PublicReadGetObject\u0026quot;,\r\u0026quot;Effect\u0026quot;: \u0026quot;Allow\u0026quot;,\r\u0026quot;Principal\u0026quot;: \u0026quot;*\u0026quot;,\r\u0026quot;Action\u0026quot;: \u0026quot;s3:GetObject\u0026quot;,\r\u0026quot;Resource\u0026quot;: \u0026quot;arn:aws:s3:::video-streaming-s3-demo/*\u0026quot;\r}\r]\rNhấn Save changes 🔹 Bước 2: Lấy URL file video để kiểm tra Trở về tab Objects → Click vào file mà bạn đã up Nhấn Upload ✅ Kết quả Video sample.mp4 có thể được truy cập công khai thông qua URL Sẵn sàng nhúng vào trang web để phát video qua CloudFront. "
+},
+{
+	"uri": "https://duc14563.github.io/video-streaming-workshop/vi/4-mediaconvert/",
+	"title": "AWS MediaConvert",
+	"tags": [],
+	"description": "",
+	"content": "Với AWS MediaConvert, chúng ta có thể chuyển đổi video từ định dạng MP4 sang HLS để tối ưu hóa cho streaming. HLS (HTTP Live Streaming) chia video thành các segment nhỏ, cho phép adaptive bitrate streaming và tải nhanh hơn qua CloudFront.\nTrong phần này chúng ta sẽ tiến hành tạo MediaConvert job để chuyển đổi video và cấu hình output để phục vụ streaming qua CloudFront.\nNội dung: Tạo MediaConvert Job - Phần 1 (tạo output folder, setup job, input video Tạo MediaConvert Job - Phần 2 (cấu hình HLS output, submit job) Phân phối HLS qua CloudFront (tạo distribution cho HLS files) "
+},
+{
+	"uri": "https://duc14563.github.io/video-streaming-workshop/vi/3-cloudfront/3.1-createdistribution/",
+	"title": "Triển khai CloudFront",
+	"tags": [],
+	"description": "",
+	"content": "🔓 Triển khai CloudFront Phục vụ Video 🎯 Mục tiêu Thiết lập CloudFront Distribution để phân phối nội dung video nhanh chóng, ổn định và đồng bộ qua CDN của AWS.\n🛠️ Các bước thực hiện 🔹 Bước 1: Truy cập CloudFront Console Vào: https://console.aws.amazon.com/cloudfront Nhấn Create Distribution 🔹 Bước 2: Thiết lập Origin Origin domain: Chọn bucket S3 của bạn Sau đó ấn Next\nTrên bảng Origin type chọn Amazon S3 Ở phần S3 origin ấn vào Browse S3 và chọn Bucket của bạn Sau đó chọn Next\nỞ bảng Enalbe security chọn Do not enable security protections Sau đó chọn Next\nSau khi tạo thành công sẽ được giao diện như sau: Sau đó chọn Next\nLấy đường dẫn của Distribution domain name đưa vào https://\u0026lt;Your_CloudFront_Domain\u0026gt;/SampleVideo_1280x720_1mb.mp4. Sau đó dán lên trình duyệt thì ta sẽ ra được video đã up load ✅ Kết quả Nhận được Domain name của Distribution ví dụ: d123abc4de5f6.cloudfront.net URL truy cập video mới: https://d123abc4de5f6.cloudfront.net/sample.mp4 Dán URL vào thẻ trên website client để stream video qua CloudFront.\n"
+},
+{
+	"uri": "https://duc14563.github.io/video-streaming-workshop/vi/3-cloudfront/3.2-testplayback/",
+	"title": "Cập nhật website phát video qua CloudFront",
+	"tags": [],
+	"description": "",
+	"content": "🌐 Cập nhật giao diện Website với đường dẫn CloudFront 🎯 Mục tiêu Chỉnh sửa mã HTML để sử dụng đường dẫn video từ CloudFront Distribution thay vì từ S3 trực tiếp.\n🛠️ Các bước thực hiện 🔹 Bước 1: Lấy domain CloudFront Sau khi tạo Distribution thành công (ở bước 3.1), bạn sẽ nhận được 1 domain dạng: \u0026ldquo;d123abc4de5f6.cloudfront.net\u0026rdquo; 🔹 Bước 2: Cập nhật index.html Mở file index.html trong thư mục project Thay đổi đoạn mã video như sau: \u0026lt;video controls\u0026gt;\r\u0026lt;source src=\u0026quot;https://d123abc4de5f6.cloudfront.net/SampleVideo_1280x720_1mb.mp4\u0026quot; type=\u0026quot;video/mp4\u0026quot;\u0026gt;\rYour browser does not support the video tag.\r\u0026lt;/video\u0026gt; 🔹 Bước 3: Kiểm tra trình phát video Mở index.html bằng trình duyệt Kết quả thu được: ✅ Kết quả Website đã phát video qua CDN CloudFront thay vì từ S3 trực tiếp Tốc độ truyền tải ổn định hơn, bảo mật cao hơn, phù hợp với ứng dụng streaming chuyên nghiệp "
+},
+{
+	"uri": "https://duc14563.github.io/video-streaming-workshop/vi/5-cleanup/",
+	"title": "Dọn dẹp tài nguyên",
+	"tags": [],
+	"description": "",
+	"content": "🧹 Dọn dẹp tài nguyên 🎯 Tổng quan Để tránh phát sinh chi phí, quan trọng là phải dọn dẹp tất cả tài nguyên AWS được tạo trong workshop này. Thực hiện theo đúng thứ tự để đảm bảo dọn dẹp hoàn toàn.\n⚠️ Lưu ý quan trọng Xóa tài nguyên theo thứ tự ngược lại để tránh lỗi phụ thuộc Kiểm tra bảng điều khiển billing sau khi dọn dẹp để xác nhận không có phí phát sinh Một số tài nguyên cần thời gian để xóa hoàn toàn 🗑️ Các bước dọn dẹp Bước 1: Xóa CloudFront Distribution Vào CloudFront Console Chọn distribution của bạn Click Disable → Chờ trạng thái chuyển thành \u0026ldquo;Disabled\u0026rdquo; ️ Thời gian chờ: 15-20 phút Click Delete Bước 2: Xóa MediaConvert Jobs Vào MediaConvert Console Click Jobs → Kiểm tra jobs đang chạy Cancel các job đang chạy (nếu có) Jobs hoàn thành sẽ tự động dọn dẹp Bước 3: Làm trống S3 Bucket Vào S3 Console Chọn bucket video-streaming-s3-demo Click Empty → Gõ permanently delete Bước 5: Kiểm tra Billing S3 Storage: ~$0.02/GB CloudFront: ~$0.085/GB transferf ✅ Xác minh Sau khi dọn dẹp, xác minh:\nCloudFront distribution đã xóa S3 bucket đã xóa AWS billing không hiển thị phí phát sinh 💰 Tóm tắt chi phí Tài nguyên sử dụng trong workshop này:\nS3 Storage: ~$0.01-0.05 (tùy thuộc kích thước video) CloudFront: ~$0.01-0.10 (tùy thuộc mức sử dụng) MediaConvert: ~$0.05-0.15 mỗi job Rekognition: ~$0.10-0.20 mỗi phút video Tổng cộng: Thường dưới $1.00 Lưu ý: Chi phí có thể thay đổi theo region và mức sử dụng.\n"
+},
+{
+	"uri": "https://duc14563.github.io/video-streaming-workshop/vi/4-mediaconvert/4.3-deliveroutputtocloudfront/",
+	"title": "Deliver HLS Output qua CloudFront",
+	"tags": [],
+	"description": "",
+	"content": "📦 Phân phối video HLS qua CloudFront 🎯 Mục tiêu Sử dụng dịch vụ Amazon CloudFront để phân phối video HLS đã được chuyển mã từ MediaConvert, giúp người dùng có thể xem video với độ trễ thấp và tốc độ tải cao hơn trên toàn cầu.\n🛠️ Các bước kiểm tra 🔹 Bước 1: Tạo CloudFront Distribution Truy cập CloudFront Console Chọn Create Distribution Tại màn hình Get started, điền như sau: Distribution name: video-streaming-s3-demo.s3.ap-southeast-1.amazonaws.com Description (optional): Phân phối video HLS từ MediaConvert qua CloudFront Distribution type: Single website or app Nhấn Next 🔹 Bước 2: Chọn Origin Origin type: Amazon S3 Origin domain: video-streaming-s3-demo.s3.ap-southeast-1.amazonaws.com Origin path: /output Tích chọn Allow private S3 bucket access to CloudFront (khuyến nghị) Nhấn Next 🔹 Bước 3: Bật hoặc Bỏ qua bảo mật AWS WAF Nếu không cần bảo vệ nâng cao: chọn Do not enable security protections 🔹 Bước 4: Hoàn tất và Kiểm tra Nhấn Create Distribution Sau khi tạo thành công, trạng thái là Deploying. Chờ vài phút để chuyển sang Enabled Copy domain CloudFront từ mục Distribution domain name ví dụ: https://d1oz7xkhchassd.cloudfront.net ✅ Kết quả Đến bước 4.3, chúng ta đã triển khai thành công một Video Streaming Platform tối thiểu (MVP) trên AWS với các thành phần: Amazon S3: Lưu trữ video gốc và file HLS sau khi chuyển đổi. AWS Elemental MediaConvert: Chuyển đổi video sang định dạng HLS (m3u8 + .ts) để hỗ trợ streaming Amazon CloudFront: Phân phối video đến người dùng trên toàn cầu với độ trễ thấp. Playback test: Xác minh video HLS chạy thành công qua CloudFront. 📌 Ghi chú:\nNếu không thấy file .m3u8 và .ts: hãy kiểm tra lại job MediaConvert có lỗi không (phần 4.2). Đảm bảo rằng bucket S3 không chặn quyền public nếu muốn phát thử video trực tiếp qua URL. "
+},
+{
+	"uri": "https://duc14563.github.io/video-streaming-workshop/vi/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://duc14563.github.io/video-streaming-workshop/vi/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
