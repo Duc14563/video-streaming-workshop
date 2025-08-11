@@ -12,21 +12,21 @@
     <title>Giới thiệu :: AWS System Manager</title>
 
     
-    <link href="/video-streaming-workshop/css/nucleus.css?1754917539" rel="stylesheet">
-    <link href="/video-streaming-workshop/css/fontawesome-all.min.css?1754917539" rel="stylesheet">
-    <link href="/video-streaming-workshop/css/hybrid.css?1754917539" rel="stylesheet">
-    <link href="/video-streaming-workshop/css/featherlight.min.css?1754917539" rel="stylesheet">
-    <link href="/video-streaming-workshop/css/perfect-scrollbar.min.css?1754917539" rel="stylesheet">
-    <link href="/video-streaming-workshop/css/auto-complete.css?1754917539" rel="stylesheet">
-    <link href="/video-streaming-workshop/css/atom-one-dark-reasonable.css?1754917539" rel="stylesheet">
-    <link href="/video-streaming-workshop/css/theme.css?1754917539" rel="stylesheet">
-    <link href="/video-streaming-workshop/css/hugo-theme.css?1754917539" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/nucleus.css?1754918174" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/fontawesome-all.min.css?1754918174" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/hybrid.css?1754918174" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/featherlight.min.css?1754918174" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/perfect-scrollbar.min.css?1754918174" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/auto-complete.css?1754918174" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/atom-one-dark-reasonable.css?1754918174" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/theme.css?1754918174" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/hugo-theme.css?1754918174" rel="stylesheet">
     
-    <link href="/video-streaming-workshop/css/theme-workshop.css?1754917539" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/theme-workshop.css?1754918174" rel="stylesheet">
     
     
 
-    <script src="/video-streaming-workshop/js/jquery-3.3.1.min.js?1754917539"></script>
+    <script src="/video-streaming-workshop/js/jquery-3.3.1.min.js?1754918174"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,8 +57,8 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/video-streaming-workshop/js/lunr.min.js?1754917539"></script>
-<script type="text/javascript" src="/video-streaming-workshop/js/auto-complete.js?1754917539"></script>
+<script type="text/javascript" src="/video-streaming-workshop/js/lunr.min.js?1754918174"></script>
+<script type="text/javascript" src="/video-streaming-workshop/js/auto-complete.js?1754918174"></script>
 <script type="text/javascript">
  if (hugo.IsMultilingual) 
         var baseurl = "https:\/\/duc14563.github.io\/video-streaming-workshop\/\/vi"; 
@@ -66,7 +66,7 @@
         var baseurl = "https:\/\/duc14563.github.io\/video-streaming-workshop\/";
  end 
 </script>
-<script type="text/javascript" src="/video-streaming-workshop/js/search.js?1754917539"></script>
+<script type="text/javascript" src="/video-streaming-workshop/js/search.js?1754918174"></script>
     
   </div>
 
@@ -593,39 +593,89 @@
 </span>
 
  
-<h2 id="giới-thiệu">Giới thiệu</h2>
-<h3 id="-mục-tiêu-của-workshop">🎯 Mục tiêu của workshop</h3>
-<p>Workshop này hướng dẫn bạn triển khai một nền tảng <strong>Video Streaming</strong> đơn giản sử dụng các dịch vụ AWS như <strong>S3</strong>, <strong>CloudFront</strong>, và <strong>MediaConvert</strong>.</p>
-<p>Bạn sẽ học cách:</p>
-<ul>
-<li>Tạo S3 bucket để lưu trữ video</li>
-<li>Thiết lập CloudFront distribution để phân phối video toàn cầu</li>
-<li>Sử dụng MediaConvert để chuyển đổi video sang định dạng streaming</li>
-<li>Tối ưu hóa hiệu suất phát video qua CDN</li>
-</ul>
+<h1 id="-tổng-quan-workshop-xây-dựng-nền-tảng-video-streaming-với-aws">🎬 Tổng quan Workshop: Xây dựng nền tảng Video Streaming với AWS</h1>
+<h2 id="-giới-thiệu">🚀 Giới thiệu</h2>
+<p>Trong thời đại số hóa hiện tại, <strong>video streaming</strong> đã trở thành một phần không thể thiếu trong cuộc sống hàng ngày. Từ Netflix, YouTube đến các nền tảng học trực tuyến, tất cả đều dựa trên công nghệ streaming mạnh mẽ.</p>
+<p>Workshop này sẽ đưa bạn vào hành trình xây dựng một <strong>hệ thống video streaming hoàn chỉnh</strong> sử dụng các dịch vụ AWS tiên tiến nhất.</p>
 <hr>
-<h3 id="-kiến-trúc-hệ-thống">🏗️ Kiến trúc hệ thống</h3>
+<h2 id="-mục-tiêu-workshop">🎯 Mục tiêu Workshop</h2>
+<h3 id="bạn-sẽ-học-được">Bạn sẽ học được:</h3>
+<p>🔹 <strong>Thiết kế kiến trúc streaming</strong>: Hiểu cách các thành phần AWS phối hợp để tạo ra hệ thống streaming hiệu quả</p>
+<p>🔹 <strong>Quản lý video content</strong>: Sử dụng Amazon S3 để lưu trữ và quản lý video một cách tối ưu</p>
+<p>🔹 <strong>Chuyển đổi video format</strong>: Áp dụng AWS MediaConvert để transcode video sang định dạng HLS phù hợp cho streaming</p>
+<p>🔹 <strong>Phân phối toàn cầu</strong>: Triển khai Amazon CloudFront CDN để đảm bảo video load nhanh ở mọi nơi trên thế giới</p>
+<p>🔹 <strong>Tối ưu hóa performance</strong>: Cấu hình adaptive bitrate streaming cho trải nghiệm người dùng tốt nhất</p>
+<hr>
+<h2 id="-kiến-trúc-hệ-thống">🏗️ Kiến trúc Hệ thống</h2>
 <p><img src="/video-streaming-workshop/images/Video-Streaming-Architecture.drawio.png" alt="Video"></p>
-<p>Kiến trúc bao gồm:</p>
+<h3 id="các-thành-phần-chính">Các thành phần chính:</h3>
+<p><strong>🗄️ Amazon S3</strong></p>
 <ul>
-<li><strong>Amazon S3</strong>: Lưu trữ video gốc và video đã chuyển đổi</li>
-<li><strong>AWS MediaConvert</strong>: Xử lý và chuyển đổi video sang nhiều định dạng</li>
-<li><strong>Amazon CloudFront</strong>: Phân phối video qua mạng CDN toàn cầu với Edge Locations</li>
+<li>Lưu trữ video gốc (MP4) và video đã transcode (HLS)</li>
+<li>Quản lý metadata và thumbnail</li>
+<li>Cấu hình bucket policy cho bảo mật</li>
+</ul>
+<p><strong>⚡ AWS MediaConvert</strong></p>
+<ul>
+<li>Chuyển đổi video từ MP4 sang HLS format</li>
+<li>Tạo multiple bitrate cho adaptive streaming</li>
+<li>Xử lý batch job tự động</li>
+</ul>
+<p><strong>🌐 Amazon CloudFront</strong></p>
+<ul>
+<li>Phân phối video qua 400+ Edge Locations toàn cầu</li>
+<li>Cache intelligent để giảm latency</li>
+<li>HTTPS security và DRM protection</li>
 </ul>
 <hr>
-<h3 id="-lợi-ích-khi-tham-gia-workshop">✅ Lợi ích khi tham gia workshop</h3>
+<h2 id="-tại-sao-nên-tham-gia-workshop-này">✨ Tại sao nên tham gia Workshop này?</h2>
+<h3 id="-kiến-thức-thực-tế">🎓 <strong>Kiến thức thực tế</strong></h3>
 <ul>
-<li>Hiểu cách xây dựng hệ thống streaming video trên AWS</li>
-<li>Nắm được cách tối ưu phân phối content toàn cầu</li>
-<li>Thực hành với các dịch vụ AWS core: S3, CloudFront, MediaConvert</li>
-<li>Có thể áp dụng vào dự án thực tế</li>
+<li>Học từ kinh nghiệm thực tế trong việc xây dựng hệ thống streaming production-ready</li>
+<li>Hiểu rõ best practices và common pitfalls cần tránh</li>
+</ul>
+<h3 id="-hands-on-experience">🛠️ <strong>Hands-on Experience</strong></h3>
+<ul>
+<li>Thực hành trực tiếp với AWS Console</li>
+<li>Build một ứng dụng streaming hoàn chỉnh từ đầu đến cuối</li>
+</ul>
+<h3 id="-ứng-dụng-career">💼 <strong>Ứng dụng Career</strong></h3>
+<ul>
+<li>Kiến thức có thể áp dụng ngay vào công việc</li>
+<li>Chuẩn bị cho các vị trí Cloud Engineer, DevOps, Solutions Architect</li>
+</ul>
+<h3 id="-scalable-architecture">🌟 <strong>Scalable Architecture</strong></h3>
+<ul>
+<li>Học cách thiết kế hệ thống có thể scale từ hàng nghìn đến hàng triệu người dùng</li>
 </ul>
 <hr>
-<h3 id="-kiến-thức-cần-có">📚 Kiến thức cần có</h3>
+<h2 id="-yêu-cầu-kiến-thức">📋 Yêu cầu Kiến thức</h2>
+<h3 id="-bắt-buộc">✅ <strong>Bắt buộc</strong></h3>
 <ul>
-<li>Kiến thức cơ bản về <strong>AWS Console</strong></li>
-<li>Hiểu biết về <strong>S3 bucket</strong> và <strong>IAM roles</strong></li>
-<li>Kiến thức sơ bộ về <strong>CDN</strong> và <strong>video streaming</strong></li>
+<li>Kiến thức cơ bản về <strong>AWS Console</strong> và navigation</li>
+<li>Hiểu biết về <strong>cloud computing</strong> concepts</li>
+<li>Kinh nghiệm với <strong>web browsers</strong> và basic networking</li>
+</ul>
+<h3 id="-nên-có">🔄 <strong>Nên có</strong></h3>
+<ul>
+<li>Làm việc với <strong>S3 buckets</strong> và <strong>IAM roles</strong></li>
+<li>Hiểu biết về <strong>CDN</strong> và <strong>video formats</strong></li>
+<li>Kinh nghiệm với <strong>JSON</strong> và <strong>API calls</strong></li>
+</ul>
+<h3 id="-bonus">💡 <strong>Bonus</strong></h3>
+<ul>
+<li>Kiến thức về <strong>video encoding</strong> và <strong>streaming protocols</strong></li>
+<li>Kinh nghiệm với <strong>AWS CLI</strong> hoặc <strong>SDKs</strong></li>
+</ul>
+<hr>
+<h2 id="-thời-gian-workshop">⏱️ Thời gian Workshop</h2>
+<p><strong>Tổng thời gian</strong>: 2-3 giờ</p>
+<ul>
+<li><strong>Phần 1</strong>: Chuẩn bị và setup S3 (30 phút)</li>
+<li><strong>Phần 2</strong>: Triển khai CloudFront (45 phút)</li>
+<li><strong>Phần 3</strong>: Cấu hình MediaConvert (60 phút)</li>
+<li><strong>Phần 4</strong>: Testing và optimization (30 phút)</li>
+<li><strong>Phần 5</strong>: Clean up resources (15 phút)</li>
 </ul>
 <hr>
 	
@@ -893,19 +943,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/video-streaming-workshop/js/clipboard.min.js?1754917539"></script>
-    <script src="/video-streaming-workshop/js/perfect-scrollbar.min.js?1754917539"></script>
-    <script src="/video-streaming-workshop/js/perfect-scrollbar.jquery.min.js?1754917539"></script>
-    <script src="/video-streaming-workshop/js/jquery.sticky.js?1754917539"></script>
-    <script src="/video-streaming-workshop/js/featherlight.min.js?1754917539"></script>
-    <script src="/video-streaming-workshop/js/highlight.pack.js?1754917539"></script>
+    <script src="/video-streaming-workshop/js/clipboard.min.js?1754918174"></script>
+    <script src="/video-streaming-workshop/js/perfect-scrollbar.min.js?1754918174"></script>
+    <script src="/video-streaming-workshop/js/perfect-scrollbar.jquery.min.js?1754918174"></script>
+    <script src="/video-streaming-workshop/js/jquery.sticky.js?1754918174"></script>
+    <script src="/video-streaming-workshop/js/featherlight.min.js?1754918174"></script>
+    <script src="/video-streaming-workshop/js/highlight.pack.js?1754918174"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/video-streaming-workshop/js/modernizr.custom-3.6.0.js?1754917539"></script>
-    <script src="/video-streaming-workshop/js/learn.js?1754917539"></script>
-    <script src="/video-streaming-workshop/js/hugo-learn.js?1754917539"></script>
+    <script src="/video-streaming-workshop/js/modernizr.custom-3.6.0.js?1754918174"></script>
+    <script src="/video-streaming-workshop/js/learn.js?1754918174"></script>
+    <script src="/video-streaming-workshop/js/hugo-learn.js?1754918174"></script>
 
-    <link href="/video-streaming-workshop/mermaid/mermaid.css?1754917539" rel="stylesheet" />
-    <script src="/video-streaming-workshop/mermaid/mermaid.js?1754917539"></script>
+    <link href="/video-streaming-workshop/mermaid/mermaid.css?1754918174" rel="stylesheet" />
+    <script src="/video-streaming-workshop/mermaid/mermaid.js?1754918174"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
