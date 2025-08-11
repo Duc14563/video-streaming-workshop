@@ -1,111 +1,111 @@
 [
 {
-	"uri": "http://localhost:1313/video-streaming-workshop/4-mediaconvert/4.1-createmediaconvert/",
+	"uri": "https://duc14563.github.io/video-streaming-workshop/4-mediaconvert/4.1-createmediaconvert/",
 	"title": "Create MediaConvert Job",
 	"tags": [],
 	"description": "",
 	"content": "🧰 Use AWS MediaConvert to Transcode Video to HLS 🎯 Objective Use AWS Elemental MediaConvert to convert original video (.mp4) to HLS (.m3u8) format to optimize streaming through CloudFront. 🛠️ Implementation steps 🔹 Step 1: Create output folder on S3 Access Amazon S3 → Select bucket: video-streaming-s3-demo Click Create folder, name it: output/ 🔹 Step 2: Create Job in AWS Elemental MediaConvert Go to https://ap-southeast-1.console.aws.amazon.com/mediaconvert/home?region=ap-southeast-1#/welcome Go to Jobs tab → Select Create job 🔹 Step 3: Input Video In Inputs section, click Add Paste S3 video path (example) s3://video-streaming-s3-demo/SampleVideo_1280x720_1mb.mp4 🔹 Step 4: Create Output Group → Select HLS In Output groups section, click Add output group Select HLS group Output destination: s3://video-streaming-s3-demo/output/ 🔹 Step 5: Configure Output Video In Outputs section, you will see default video codec is H.264 and audio is AAC If system shows maxBitrate is a required property error, fix as follows: Fix maxBitrate is a required property error:\nScroll down to Video settings section Select: Rate control mode: QVBR Max bitrate (bits/s): nhập 5000000 (5 Mbps) QVBR quality level: giữ mặc định Auto 🔹 Step 6: Submit Job Click Create The conversion process will take 1–3 minutes. Then you will get results like the image: ✅ Result Check /output/ folder in S3, you will see: index.m3u8 (playlist HLS) .ts segments. "
 },
 {
-	"uri": "http://localhost:1313/video-streaming-workshop/2-prerequiste/2.1-creates3bucket/",
+	"uri": "https://duc14563.github.io/video-streaming-workshop/2-prerequiste/2.1-creates3bucket/",
 	"title": "Create S3 Bucket",
 	"tags": [],
 	"description": "",
 	"content": "🧱 Create S3 Bucket 🎯 Objective Create an S3 bucket to store video files for streaming through CloudFront.\n🛠️ Implementation steps 🔹 B Step 1: Access S3 Console Go to: https://console.aws.amazon.com/s3/home Click Create bucket 🔹 Step 2: Enter configuration information Bucket name: video-streaming-s3-demo Region: Asia Pacific (Singapore) ap-southeast-1 Block Public Access: uncheck Block all public access 🔹 Step 3: Create bucket Click Create bucket to complete ✅ Kết quả You have successfully created an S3 Bucket for use in the Video Streaming system.\n"
 },
 {
-	"uri": "http://localhost:1313/video-streaming-workshop/1-introduce/",
+	"uri": "https://duc14563.github.io/video-streaming-workshop/1-introduce/",
 	"title": "Introduction",
 	"tags": [],
 	"description": "",
 	"content": "Introduction Describes building a video streaming platform Core components: S3 (storage) and CloudFront (distribution) Learning Objectives Design scalable streaming architecture Configure S3 for media storage and public access Create CloudFront distributions for global delivery Configure bucket policies and CORS "
 },
 {
-	"uri": "http://localhost:1313/video-streaming-workshop/",
+	"uri": "https://duc14563.github.io/video-streaming-workshop/",
 	"title": "Introduction",
 	"tags": [],
 	"description": "",
-	"content": "🎯 Workshop Objectives This workshop guides you through deploying a simple Video Streaming platform using AWS services such as S3, CloudFront, and MediaConvert.\nYou will learn how to:\nCreate S3 bucket for video storage Set up CloudFront distribution for global video delivery Use MediaConvert to transcode videos into streaming formats Optimize video playback performance through CDN 🏗️ System Architecture The architecture includes:\nAmazon S3: Store original and transcoded videos AWS MediaConvert: Process and transcode videos into multiple formats Amazon CloudFront: Distribute videos through global CDN with Edge Locations ✅ Benefits of Participating in This Workshop Understand how to build video streaming systems on AWS Learn how to optimize global content distribution Practice with core AWS services: S3, CloudFront, MediaConvert Apply knowledge to real-world projects 📚 Prerequisites Basic knowledge of AWS Console Understanding of S3 buckets and IAM roles Basic knowledge of CDN and video streaming "
+	"content": "Introduction 🎯 Workshop Objectives This workshop guides you through deploying a simple Video Streaming platform using AWS services such as S3, CloudFront, and MediaConvert.\nYou will learn how to:\nCreate S3 bucket for video storage Set up CloudFront distribution for global video delivery Use MediaConvert to transcode videos into streaming formats Optimize video playback performance through CDN 🏗️ System Architecture The architecture includes:\nAmazon S3: Store original and transcoded videos AWS MediaConvert: Process and transcode videos into multiple formats Amazon CloudFront: Distribute videos through global CDN with Edge Locations ✅ Benefits of Participating in This Workshop Understand how to build video streaming systems on AWS Learn how to optimize global content distribution Practice with core AWS services: S3, CloudFront, MediaConvert Apply knowledge to real-world projects 📚 Prerequisites Basic knowledge of AWS Console Understanding of S3 buckets and IAM roles Basic knowledge of CDN and video streaming "
 },
 {
-	"uri": "http://localhost:1313/video-streaming-workshop/4-mediaconvert/4.2-createmediaconvertjob/",
+	"uri": "https://duc14563.github.io/video-streaming-workshop/4-mediaconvert/4.2-createmediaconvertjob/",
 	"title": "Create MediaConvert Job",
 	"tags": [],
 	"description": "",
 	"content": "🧰 Use AWS MediaConvert to Transcode Video to HLS 🎯 Objective Use AWS Elemental MediaConvert to convert original video (.mp4) to HLS (.m3u8) format to optimize streaming through CloudFront.\n🛠️ Implementation steps 🔹 Step 1: Access MediaConvert Go to (https://console.aws.amazon.com/mediaconvert) Select Jobs → Create job 🔹 Step 2: Add Input Video In Inputs section, click Add Paste video path from S3 (example): s3://video-streaming-s3-demo/SampleVideo_1280x720_1mb.mp4 🔹 Step 3: Create Output Group → Select HLS Go to Output groups section → Click Add output group Select type: Apple HLS Output destination: s3://video-streaming-s3-demo/output/ Storage class: Standard 🔹 Step 4: Configure Output In Output section, keep default preset (H.264 / AAC) Settings: Rate control mode: QVBR Max bitrate: 5000000 QVBR quality level: Auto 🔹 Step 5: Submit Job and Wait for Processing Review Input, Output group, Codec, IAM Role Click Create to submit job Wait 1–3 minutes for processing 🔹 Step 6: Check Output files on S3 Access S3 → Bucket: video-streaming-s3-demo → Folder: output/ You will see files like: .m3u8: HLS Playlist .ts: Video segments .mp4: Original video ✅ Result Check S3 bucket /output/: index.m3u8 (playlist) Multiple .ts files (video segments) These files are ready to stream via CloudFront (see step 4.3) "
 },
 {
-	"uri": "http://localhost:1313/video-streaming-workshop/2-prerequiste/",
+	"uri": "https://duc14563.github.io/video-streaming-workshop/2-prerequiste/",
 	"title": "Prerequiste",
 	"tags": [],
 	"description": "",
 	"content": "\rYou need to prepare a sample video file (MP4 format) to perform this hands-on lab.\nTo build a Video Streaming system on AWS, we need to prepare basic components including S3 bucket for video storage and configure public access permissions so videos can be streamed.\nIn this preparation section, we will:\nCreate S3 bucket for video storage Upload sample video file Configure bucket policy to allow public access Nội dung Create S3 Bucket Upload video file Configure public access permissions "
 },
 {
-	"uri": "http://localhost:1313/video-streaming-workshop/2-prerequiste/2.2-createiamrole/",
+	"uri": "https://duc14563.github.io/video-streaming-workshop/2-prerequiste/2.2-createiamrole/",
 	"title": "Configure public access permissions",
 	"tags": [],
 	"description": "",
 	"content": "🔓 Configure public access permissions 🎯 Objective Allow users to publicly access videos in the S3 bucket through URLs.\n🛠️ Implementation steps 🔹 Access the Upload section of the bucket Open AWS S3 Console.\nClick on bucket video-streaming-s3-demo\nSelect tab [Objects] → Upload Click \u0026ldquo;Add files\u0026rdquo; → select the file you want to upload\nClick Upload ✅ Result You have successfully created an S3 Bucket for use in the Video Streaming system.\n"
 },
 {
-	"uri": "http://localhost:1313/video-streaming-workshop/3-cloudfront/",
+	"uri": "https://duc14563.github.io/video-streaming-workshop/3-cloudfront/",
 	"title": "Deploy CloudFront",
 	"tags": [],
 	"description": "",
 	"content": "In this step, we will set up Amazon CloudFront to distribute video content with high performance and low latency globally. CloudFront will cache videos from S3 bucket at edge locations closest to users.\nCloudFront helps:\nIncrease video loading speed Reduce bandwidth from S3 Improve global user experience Secure content delivery Nội dung Create CloudFront Distribution Update website with CloudFront URL "
 },
 {
-	"uri": "http://localhost:1313/video-streaming-workshop/2-prerequiste/2.3-makes3public/",
+	"uri": "https://duc14563.github.io/video-streaming-workshop/2-prerequiste/2.3-makes3public/",
 	"title": "Complete S3 configuration",
 	"tags": [],
 	"description": "",
 	"content": "🔓 Configure public access permissions 🎯 Objective Allow users to publicly access videos in the S3 bucket through URLs.\n🛠️ Implementation steps 🔹 Step 1: Configure Bucket Policy to make video files public In the Permissions tab, scroll down to Bucket policy section Click Edit → Paste the following JSON: {\r\u0026quot;Version\u0026quot;: \u0026quot;2012-10-17\u0026quot;,\r\u0026quot;Statement\u0026quot;: [\r{\r\u0026quot;Sid\u0026quot;: \u0026quot;PublicReadGetObject\u0026quot;,\r\u0026quot;Effect\u0026quot;: \u0026quot;Allow\u0026quot;,\r\u0026quot;Principal\u0026quot;: \u0026quot;*\u0026quot;,\r\u0026quot;Action\u0026quot;: \u0026quot;s3:GetObject\u0026quot;,\r\u0026quot;Resource\u0026quot;: \u0026quot;arn:aws:s3:::video-streaming-s3-demo/*\u0026quot;\r}\r]\rClick Save changes 🔹 Bước 2: Lấy URL file video để kiểm tra Return to Objects tab → Click on the file you uploaded Click Upload ✅ Result The sample.mp4 video can be publicly accessed through URL. Ready to embed into web pages for video streaming via CloudFront. "
 },
 {
-	"uri": "http://localhost:1313/video-streaming-workshop/4-mediaconvert/",
+	"uri": "https://duc14563.github.io/video-streaming-workshop/4-mediaconvert/",
 	"title": "AWS MediaConvert",
 	"tags": [],
 	"description": "",
 	"content": "With AWS MediaConvert, we can convert video from MP4 format to HLS to optimize for streaming. HLS (HTTP Live Streaming) divides video into small segments, enabling adaptive bitrate streaming and faster loading through CloudFront.\nIn this section, we will create MediaConvert jobs to transcode video and configure output to serve streaming via CloudFront.\nContent: Create MediaConvert Job - Part 1 (create output folder, setup job, input video) Create MediaConvert Job - Part 2 (configure HLS output, submit job) Deliver HLS via CloudFront (create distribution for HLS files) "
 },
 {
-	"uri": "http://localhost:1313/video-streaming-workshop/3-cloudfront/3.1-createdistribution/",
+	"uri": "https://duc14563.github.io/video-streaming-workshop/3-cloudfront/3.1-createdistribution/",
 	"title": "Deploy CloudFront",
 	"tags": [],
 	"description": "",
 	"content": "🔓 Deploy CloudFront for Video Distribution 🎯 Objective Set up CloudFront Distribution to distribute video content quickly, reliably and synchronously through AWS CDN.\n🛠️ Implementation Steps 🔹 Step 1: Access CloudFront Console Go to: https://console.aws.amazon.com/cloudfront Click Create Distribution 🔹 Step 2: Configure Origin Origin domain: Select your S3 bucket Then click Next 2. On Origin type panel, select Amazon S3\nIn S3 origin section, click Browse S3 and select your Bucket\nThen select Next\nIn Enable security panel, select Do not enable security protections Then select Next\nAfter successful creation, you will get the interface as follows: Then select Next\nGet the Distribution domain name path and put it into https://\u0026lt;Your_CloudFront_Domain\u0026gt;/SampleVideo_1280x720_1mb.mp4. Then paste it into the browser and you will get the uploaded video ✅ Result Received Distribution domain name, for example: d123abc4de5f6.cloudfront.net New video access URL: https://d123abc4de5f6.cloudfront.net/sample.mp4 Paste URL into tag on client website to stream video via CloudFront. "
 },
 {
-	"uri": "http://localhost:1313/video-streaming-workshop/3-cloudfront/3.2-testplayback/",
+	"uri": "https://duc14563.github.io/video-streaming-workshop/3-cloudfront/3.2-testplayback/",
 	"title": "Update website to stream video via CloudFront",
 	"tags": [],
 	"description": "",
 	"content": "🌐 Update Website Interface with CloudFront URL 🎯 Objective Modify HTML code to use video URL from CloudFront Distribution instead of directly from S3.\n🛠️ Implementation steps 🔹 Step 1: Get CloudFront domain After successfully creating Distribution (in step 3.1), you will receive a domain like: \u0026ldquo;d123abc4de5f6.cloudfront.net\u0026rdquo; 🔹 Update index.html Open index.html file in project folder Change the video code as follows: \u0026lt;video controls\u0026gt;\r\u0026lt;source src=\u0026quot;https://d123abc4de5f6.cloudfront.net/SampleVideo_1280x720_1mb.mp4\u0026quot; type=\u0026quot;video/mp4\u0026quot;\u0026gt;\rYour browser does not support the video tag.\r\u0026lt;/video\u0026gt; 🔹 Step 3: Test video player Open index.html with browser Result obtained: ✅ Result Website now streams video via CloudFront CDN instead of directly from S3 More stable transmission speed, higher security, suitable for professional streaming applications. "
 },
 {
-	"uri": "http://localhost:1313/video-streaming-workshop/5-cleanup/",
+	"uri": "https://duc14563.github.io/video-streaming-workshop/5-cleanup/",
 	"title": "Clean up resources",
 	"tags": [],
 	"description": "",
 	"content": "🧹 Clean up resources 🎯 Overview To avoid incurring charges, it\u0026rsquo;s important to clean up all AWS resources created in this workshop. Follow the correct order to ensure complete cleanup.\n⚠️ Important notes Delete resources in reverse order to avoid dependency errors Check billing dashboard after cleanup to confirm no charges are incurred Some resources need time to be completely deleted 🗑️ Cleanup steps Step 1: Delete CloudFront Distribution Go to CloudFront Console Select your distribution Click Disable → Wait for status to change to \u0026ldquo;Disabled\u0026rdquo; ️ Wait time: 15-20 minutes Click Delete Step 2: Delete MediaConvert Jobs Go to MediaConvert Console Click Jobs → Check running Cancel running jobs (if any) Completed jobs will be automatically cleaned up Step 3: Empty S3 Bucket Go to S3 Console Select bucket video-streaming-s3-demo Click Empty → Type permanently delete Bước 5: Kiểm tra Billing S3 Storage: ~$0.02/GB CloudFront: ~$0.085/GB transferf ✅ Xác minh Sau khi dọn dẹp, xác minh:\nCloudFront distribution đã xóa S3 bucket đã xóa AWS billing không hiển thị phí phát sinh 💰 Tóm tắt chi phí Tài nguyên sử dụng trong workshop này:\nS3 Storage: ~$0.01-0.05 (tùy thuộc kích thước video) CloudFront: ~$0.01-0.10 (tùy thuộc mức sử dụng) MediaConvert: ~$0.05-0.15 mỗi job Rekognition: ~$0.10-0.20 mỗi phút video Tổng cộng: Thường dưới $1.00 Lưu ý: Chi phí có thể thay đổi theo region và mức sử dụng.\n"
 },
 {
-	"uri": "http://localhost:1313/video-streaming-workshop/4-mediaconvert/4.3-deliveroutputtocloudfront/",
+	"uri": "https://duc14563.github.io/video-streaming-workshop/4-mediaconvert/4.3-deliveroutputtocloudfront/",
 	"title": "Deliver HLS Output via CloudFront",
 	"tags": [],
 	"description": "",
 	"content": "📦 Distribute HLS video via CloudFront 🎯 Objective Use Amazon CloudFront service to distribute HLS video transcoded from MediaConvert, allowing users to watch video with lower latency and higher loading speed globally.\n🛠️ Verification Steps 🔹 Step 1: Create CloudFront Distribution Access CloudFront Console Select Create Distribution At Get started screen, fill in as follows: Distribution name: video-streaming-s3-demo.s3.ap-southeast-1.amazonaws.com Description (optional): Distribute HLS video from MediaConvert via CloudFront Distribution type: Single website or app Click Next 🔹 Step 2: Select Origin Origin type: Amazon S3 Origin domain: video-streaming-s3-demo.s3.ap-southeast-1.amazonaws.com Origin path: /output Check Allow private S3 bucket access to CloudFront (recommended) Click Next 🔹 Step 3: Enable or Skip AWS WAF Security If advanced protection is not needed: select Do not enable security protections 🔹 Step 4: Complete and Verify Click Create Distribution After successful creation, status is Deploying. Wait a few minutes to change to Enabled Copy CloudFront domain from Distribution domain name section (example: https://d1oz7xkhchassd.cloudfront.net) ✅ Result By step 4.3, we have successfully deployed a minimum Video Streaming Platform (MVP) on AWS with components: Amazon S3: Store original video and HLS files after conversion. AWS Elemental MediaConvert: Convert video to HLS format (m3u8 + .ts) to support streaming Amazon CloudFront: Distribute video to users globally with low latency. Playback test: Verify HLS video runs successfully via CloudFront. 📌 Note:\nIf you don\u0026rsquo;t see .m3u8 and .ts files: check if MediaConvert job has errors (section 4.2). Ensure S3 bucket doesn\u0026rsquo;t block public access if you want to test video directly via URL. "
 },
 {
-	"uri": "http://localhost:1313/video-streaming-workshop/categories/",
+	"uri": "https://duc14563.github.io/video-streaming-workshop/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "http://localhost:1313/video-streaming-workshop/tags/",
+	"uri": "https://duc14563.github.io/video-streaming-workshop/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",
