@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Create MediaConvert Job on AWS System Manager</title>
-    <link>https://duc14563.github.io/video-streaming-workshop/4-mediaconvert/4.1-createmediaconvert/</link>
+    <link>http://localhost:1313/video-streaming-workshop/4-mediaconvert/4.1-createmediaconvert/</link>
     <description>Recent content in Create MediaConvert Job on AWS System Manager</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://duc14563.github.io/video-streaming-workshop/4-mediaconvert/4.1-createmediaconvert/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/video-streaming-workshop/4-mediaconvert/4.1-createmediaconvert/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

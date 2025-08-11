@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi" class="js csstransforms3d">
-  <head>
+  <head><script src="/video-streaming-workshop/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=video-streaming-workshop/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.147.8">
@@ -12,21 +12,21 @@
     <title>Tạo Job MediaConvert :: AWS System Manager</title>
 
     
-    <link href="/video-streaming-workshop/css/nucleus.css?1754890585" rel="stylesheet">
-    <link href="/video-streaming-workshop/css/fontawesome-all.min.css?1754890585" rel="stylesheet">
-    <link href="/video-streaming-workshop/css/hybrid.css?1754890585" rel="stylesheet">
-    <link href="/video-streaming-workshop/css/featherlight.min.css?1754890585" rel="stylesheet">
-    <link href="/video-streaming-workshop/css/perfect-scrollbar.min.css?1754890585" rel="stylesheet">
-    <link href="/video-streaming-workshop/css/auto-complete.css?1754890585" rel="stylesheet">
-    <link href="/video-streaming-workshop/css/atom-one-dark-reasonable.css?1754890585" rel="stylesheet">
-    <link href="/video-streaming-workshop/css/theme.css?1754890585" rel="stylesheet">
-    <link href="/video-streaming-workshop/css/hugo-theme.css?1754890585" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/nucleus.css?1754893637" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/fontawesome-all.min.css?1754893637" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/hybrid.css?1754893637" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/featherlight.min.css?1754893637" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/perfect-scrollbar.min.css?1754893637" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/auto-complete.css?1754893637" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/atom-one-dark-reasonable.css?1754893637" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/theme.css?1754893637" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/hugo-theme.css?1754893637" rel="stylesheet">
     
-    <link href="/video-streaming-workshop/css/theme-workshop.css?1754890585" rel="stylesheet">
+    <link href="/video-streaming-workshop/css/theme-workshop.css?1754893637" rel="stylesheet">
     
     
 
-    <script src="/video-streaming-workshop/js/jquery-3.3.1.min.js?1754890585"></script>
+    <script src="/video-streaming-workshop/js/jquery-3.3.1.min.js?1754893637"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,16 +57,16 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/video-streaming-workshop/js/lunr.min.js?1754890585"></script>
-<script type="text/javascript" src="/video-streaming-workshop/js/auto-complete.js?1754890585"></script>
+<script type="text/javascript" src="/video-streaming-workshop/js/lunr.min.js?1754893637"></script>
+<script type="text/javascript" src="/video-streaming-workshop/js/auto-complete.js?1754893637"></script>
 <script type="text/javascript">
  if (hugo.IsMultilingual) 
-        var baseurl = "https:\/\/duc14563.github.io\/video-streaming-workshop\/\/vi"; 
+        var baseurl = "http:\/\/localhost:1313\/video-streaming-workshop\/\/vi"; 
  else 
-        var baseurl = "https:\/\/duc14563.github.io\/video-streaming-workshop\/";
+        var baseurl = "http:\/\/localhost:1313\/video-streaming-workshop\/";
  end 
 </script>
-<script type="text/javascript" src="/video-streaming-workshop/js/search.js?1754890585"></script>
+<script type="text/javascript" src="/video-streaming-workshop/js/search.js?1754893637"></script>
     
   </div>
 
@@ -500,7 +500,7 @@
                   
                     
                     
-                      <option id="en" value="https://duc14563.github.io/video-streaming-workshop/4-mediaconvert/4.2-createmediaconvertjob/">English</option>
+                      <option id="en" value="http://localhost:1313/video-streaming-workshop/4-mediaconvert/4.2-createmediaconvertjob/">English</option>
                     
                   
               
@@ -514,7 +514,7 @@
                   
                     
                     
-                      <option id="vi" value="https://duc14563.github.io/video-streaming-workshop/vi/4-mediaconvert/4.2-createmediaconvertjob/" selected>Tiếng Việt</option>
+                      <option id="vi" value="http://localhost:1313/video-streaming-workshop/vi/4-mediaconvert/4.2-createmediaconvertjob/" selected>Tiếng Việt</option>
                     
                   
               
@@ -662,7 +662,7 @@
 <ul>
 <li>Truy cập (<a href="https://console.aws.amazon.com/mediaconvert">https://console.aws.amazon.com/mediaconvert</a>)</li>
 <li>Chọn Jobs → Create job
-<img src="/images/4-mediaconvert/create-job.png" alt="create-job"></li>
+<img src="/video-streaming-workshop/images/4-mediaconvert/create-job.png" alt="create-job"></li>
 </ul>
 <hr>
 <h4 id="-bước-2-thêm-input-video">🔹 Bước 2: Thêm Input Video</h4>
@@ -670,7 +670,7 @@
 <li>Trong phần Inputs, nhấn Add</li>
 <li>Dán đường dẫn video từ S3 (ví dụ):
 s3://video-streaming-s3-demo/SampleVideo_1280x720_1mb.mp4
-<img src="/images/4-mediaconvert/input-video.png" alt="create-input"></li>
+<img src="/video-streaming-workshop/images/4-mediaconvert/input-video.png" alt="create-input"></li>
 </ul>
 <hr>
 <h4 id="-bước-3-tạo-output-group--chọn-hls">🔹 Bước 3: Tạo Output Group → Chọn HLS</h4>
@@ -680,7 +680,7 @@ s3://video-streaming-s3-demo/SampleVideo_1280x720_1mb.mp4
 <li>Output destination:
 s3://video-streaming-s3-demo/output/</li>
 <li>Storage class: Standard
-<img src="/images/4-mediaconvert/apple-hls.png" alt="Apple-HLS"></li>
+<img src="/video-streaming-workshop/images/4-mediaconvert/apple-hls.png" alt="Apple-HLS"></li>
 </ul>
 <hr>
 <h4 id="-bước-4-thiết-lập-output">🔹 Bước 4: Thiết lập Output</h4>
@@ -691,7 +691,7 @@ s3://video-streaming-s3-demo/output/</li>
 <li>Rate control mode: QVBR</li>
 <li>Max bitrate: 5000000</li>
 <li>QVBR quality level: Auto
-<img src="/images/4-mediaconvert/hls.png" alt="hls"></li>
+<img src="/video-streaming-workshop/images/4-mediaconvert/hls.png" alt="hls"></li>
 </ul>
 </li>
 </ul>
@@ -701,7 +701,7 @@ s3://video-streaming-s3-demo/output/</li>
 <li>Kiểm tra lại Input, Output group, Codec, IAM Role</li>
 <li>Nhấn Create để gửi job</li>
 <li>Chờ từ 1–3 phút để xử lý
-<img src="/images/4-mediaconvert/successful-job.png" alt="output-setting"></li>
+<img src="/video-streaming-workshop/images/4-mediaconvert/successful-job.png" alt="output-setting"></li>
 </ul>
 <hr>
 <h4 id="-bước-6-kiểm-tra-file-output-trên-s3">🔹 Bước 6: Kiểm tra file Output trên S3</h4>
@@ -712,7 +712,7 @@ s3://video-streaming-s3-demo/output/</li>
 <li>.m3u8: Playlist HLS</li>
 <li>.ts: Các đoạn video segment</li>
 <li>.mp4: Video gốc
-<img src="/images/4-mediaconvert/output-s3.png" alt="outputS3"></li>
+<img src="/video-streaming-workshop/images/4-mediaconvert/output-s3.png" alt="outputS3"></li>
 </ul>
 </li>
 </ul>
@@ -1010,19 +1010,19 @@ s3://video-streaming-s3-demo/output/</li>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/video-streaming-workshop/js/clipboard.min.js?1754890585"></script>
-    <script src="/video-streaming-workshop/js/perfect-scrollbar.min.js?1754890585"></script>
-    <script src="/video-streaming-workshop/js/perfect-scrollbar.jquery.min.js?1754890585"></script>
-    <script src="/video-streaming-workshop/js/jquery.sticky.js?1754890585"></script>
-    <script src="/video-streaming-workshop/js/featherlight.min.js?1754890585"></script>
-    <script src="/video-streaming-workshop/js/highlight.pack.js?1754890585"></script>
+    <script src="/video-streaming-workshop/js/clipboard.min.js?1754893637"></script>
+    <script src="/video-streaming-workshop/js/perfect-scrollbar.min.js?1754893637"></script>
+    <script src="/video-streaming-workshop/js/perfect-scrollbar.jquery.min.js?1754893637"></script>
+    <script src="/video-streaming-workshop/js/jquery.sticky.js?1754893637"></script>
+    <script src="/video-streaming-workshop/js/featherlight.min.js?1754893637"></script>
+    <script src="/video-streaming-workshop/js/highlight.pack.js?1754893637"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/video-streaming-workshop/js/modernizr.custom-3.6.0.js?1754890585"></script>
-    <script src="/video-streaming-workshop/js/learn.js?1754890585"></script>
-    <script src="/video-streaming-workshop/js/hugo-learn.js?1754890585"></script>
+    <script src="/video-streaming-workshop/js/modernizr.custom-3.6.0.js?1754893637"></script>
+    <script src="/video-streaming-workshop/js/learn.js?1754893637"></script>
+    <script src="/video-streaming-workshop/js/hugo-learn.js?1754893637"></script>
 
-    <link href="/video-streaming-workshop/mermaid/mermaid.css?1754890585" rel="stylesheet" />
-    <script src="/video-streaming-workshop/mermaid/mermaid.js?1754890585"></script>
+    <link href="/video-streaming-workshop/mermaid/mermaid.css?1754893637" rel="stylesheet" />
+    <script src="/video-streaming-workshop/mermaid/mermaid.js?1754893637"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
